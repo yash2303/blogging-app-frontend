@@ -1,0 +1,53 @@
+{
+    "blogs": [
+        {
+            "id": 1,
+            "title": "Introduction to React",
+            "content": "React is a JavaScript library for building user interfaces. It allows developers to build reusable UI components and manage the state of their applications.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "John Doe",
+            "date": "January 1, 2021"
+        },
+        {
+            "id": 2,
+            "title": "Building a Todo List with React and Redux",
+            "content": "In this tutorial, we'll be building a simple todo list application using React and Redux. We'll cover the basics of building a React app, as well as how to use Redux to manage the state of the app.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "Jane Smith",
+            "date": "January 2, 2021"
+        },
+        {
+            "id": 3,
+            "title": "React Router: Navigating Between Pages",
+            "content": "React Router is a library for React that makes it easy to add routing to your app. In this tutorial, we'll cover how to use React Router to navigate between pages in your app.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "Mike Johnson",
+            "date": "January 3, 2021"
+        },
+        {
+            "id": 4,
+            "title": "React Native: Building Mobile Apps",
+            "content": "React Native is a framework for building mobile apps using React. With React Native, you can build apps for iOS and Android using the same codebase. This tutorial will cover the basics of building a simple app with React Native.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "Emily Davis",
+            "date": "January 4, 2021"
+        },
+        {
+            "id": 5,
+            "title": "Testing React Components",
+            "content": "Testing is an important part of building any application. In this tutorial, we'll cover how to write tests for React components using Jest and Enzyme.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "Jack Smith",
+            "date": "January 5, 2021"
+        },
+        {
+            "id": 6,
+            "title": "React Hooks: A Beginner's Guide",
+            "content": "React Hooks are a way to use state and other React features in functional components. In this tutorial, we'll cover the basics of using React Hooks and how to convert a class-based component to a functional component using Hooks.",
+            "thumbnail": "https://miro.medium.com/max/700/1*5y5_V7zgZBXNr-U_qHUJ-6A.png",
+            "author": "Emily Thompson",
+            "date": "January 6, 2021"
+        }
+    ]
+    
+}
