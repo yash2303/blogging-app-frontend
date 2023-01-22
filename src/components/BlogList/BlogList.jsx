@@ -21,6 +21,10 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
     dispatch(loadBlogList());
   }, []);
 
+  const handleCreateBlog = () => {
+    history.push("/create-blog");
+  };
+
   if (isLoading) {
     return <div>Loading Blogs...</div>;
   } else if (error) {
@@ -29,9 +33,13 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
     return (
       <div className="blog-list-container">
         <LogoutButton />
+        <button className="create-blog-button" onClick={handleCreateBlog}>
+          Create Blog
+        </button>
         {blogs.map((blog) => {
           const date = new Date(blog.createdAt);
-          const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+          const formattedDate =
+            date.toLocaleDateString() + " " + date.toLocaleTimeString();
           return (
             <div key={blog.id} className="blog-list-item">
               <h2 className="blog-title">{blog.title}</h2>
@@ -41,9 +49,8 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
                 <span>Created at: {formattedDate}</span>
               </div>
             </div>
-          )
-        }
-        )}
+          );
+        })}
       </div>
     );
   }
@@ -59,7 +66,7 @@ const mapStateToProps = (state) => ({
   blogs: state.blogList?.blogs,
   isLoading: state.blogList?.isLoading,
   error: state.blogList?.error,
-  user: state.auth?.user
+  user: state.auth?.user,
 });
 
 export default connect(mapStateToProps)(BlogList);
