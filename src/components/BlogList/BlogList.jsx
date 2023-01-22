@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loadBlogList } from "../../actions/BlogList";
 import "./BlogList.css";
+import LogoutButton from "../Logout/LogoutButton";
 
 const BlogList = ({ blogs, isLoading, error, user }) => {
   const dispatch = useDispatch();
@@ -27,16 +28,22 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
   } else {
     return (
       <div className="blog-list-container">
-        {blogs.map((blog) => (
-          <div key={blog.id} className="blog-list-item">
-            <h2 className="blog-title">{blog.title}</h2>
-            <p className="blog-content">{blog.content}</p>
-            <div className="blog-details">
-              <span>Author: {blog.author.username}</span>
-              <span>Date: {blog.createdAt}</span>
+        <LogoutButton />
+        {blogs.map((blog) => {
+          const date = new Date(blog.createdAt);
+          const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+          return (
+            <div key={blog.id} className="blog-list-item">
+              <h2 className="blog-title">{blog.title}</h2>
+              <p className="blog-content">{blog.content}</p>
+              <div className="blog-details">
+                <span>Author: {blog.author.username}</span>
+                <span>Created at: {formattedDate}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        }
+        )}
       </div>
     );
   }
@@ -51,7 +58,8 @@ BlogList.propTypes = {
 const mapStateToProps = (state) => ({
   blogs: state.blogList?.blogs,
   isLoading: state.blogList?.isLoading,
-  error: state.blogList?.error
+  error: state.blogList?.error,
+  user: state.auth?.user
 });
 
 export default connect(mapStateToProps)(BlogList);

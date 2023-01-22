@@ -38,6 +38,8 @@ const authReducer = (
       return { ...state, error: action.payload };
     case "REGISTER_ERROR":
       return { ...state, error: action.payload };
+    case "LOGOUT":
+      return { ...state, user: null };
     default:
       return state;
   }

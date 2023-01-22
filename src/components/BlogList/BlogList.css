@@ -1,12 +1,7 @@
-.loading-icon {
-  display: 'flex';
-  flex-direction: column;
-  align-items: center;
-}
-
 .blog-list-container {
+  padding-top: 20px; /* Add padding-top to create space at the top of the page */
   display: flex;
-  flex-direction: column; /* This will change the direction of flex items */
+  flex-direction: column;
   align-items: center;
 }
 
@@ -17,14 +12,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-style: inset;
-  border-width: 2px;
-  border-color: #555; */
-}
-
-.blog-list-item img {
-    width: 100%;
-    height: auto;
 }
 
 .blog-title {
@@ -56,4 +43,3 @@
   margin-right: 30px;
   background-color: rgba(255,255,255,0.8);
 }
-
