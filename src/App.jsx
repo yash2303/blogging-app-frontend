@@ -1,6 +1,10 @@
-import BlogList from './components/BlogList';
-import store from './store';
-import { Provider } from 'react-redux';
+import store from "./store";
+import { Provider } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import NotFoundPage from "./pages/NotFoundPage";
+import BlogList from "./components/BlogList";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 // console.log(store.getState()) // logs the current state of store
 // store.dispatch({type: 'SET_BLOGS', blogs: [{id:1, title: "My blog 1", content: "This is my first blog post"}]})
@@ -12,7 +16,12 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <BlogList />
+        <Switch>
+          <Route exact={true} path="/login" component={Login} />
+          <Route exact={true} path="/register" component={Register} />
+          <Route exact={true} path="/blogs" component={BlogList} />
+          <Route component={NotFoundPage} />
+        </Switch>{" "}
       </div>
     </Provider>
   );
