@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loadBlogList } from "../../actions/BlogList";
 import "./BlogList.css";
@@ -38,19 +39,21 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
         </button>
         {blogs.map((blog) => {
           const date = new Date(blog.createdAt);
-          const formattedDate =
-            date.toLocaleDateString() + " " + date.toLocaleTimeString();
+          const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
           return (
             <div key={blog.id} className="blog-list-item">
-              <h2 className="blog-title">{blog.title}</h2>
-              <p className="blog-content">{blog.content}</p>
+              <h2 className="blog-title">
+                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+              </h2>
+              <p className="blog-content">{blog.summary}</p>
               <div className="blog-details">
                 <span>Author: {blog.author.username}</span>
                 <span>Created at: {formattedDate}</span>
               </div>
             </div>
-          );
-        })}
+          )
+        }
+        )}
       </div>
     );
   }
