@@ -1,11 +1,10 @@
-export const blogsReducer = (
-  state = {
-    isLoading: false,
-    error: null,
-    blogs: [],
-  },
-  action
-) => {
+const initialState = {
+  isLoading: false,
+  error: null,
+  blogs: [],
+};
+
+export const blogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_BLOGS":
       return { ...state, isLoading: false, blogs: action.blogs, error: null };

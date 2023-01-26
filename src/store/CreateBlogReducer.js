@@ -1,22 +1,26 @@
-export const createBlogReducer = (
-    state = {
-      isLoading: false,
-      error: null,
-      blogs: [],
-    },
-    action
-  ) => {
-    switch (action.type) {
-      case "CREATE_BLOG_SUCCESS":
-        return {
-          ...state,
-          isLoading: false,
-          error: null,
-          blogs: [...state.blogs, action.payload],
-        };
-      case "CREATE_BLOG_ERROR":
-        return { ...state, isLoading: false, error: action.payload };
-      default:
-        return state;
-    }
-  };
+const initialState = {
+  isLoading: false,
+  error: null,
+  createdBlog: null,
+};
+
+export const createBlogReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "CREATE_BLOG_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        createdBlog: action.payload,
+      };
+    case "CREATE_BLOG_ERROR":
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+        createdBlog: null,
+      };
+    default:
+      return state;
+  }
+};

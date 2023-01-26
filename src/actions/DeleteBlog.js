@@ -1,27 +1,14 @@
-const setAuthHeader = (headers) => {
-    const authToken = localStorage.getItem("authToken");
-    if(!authToken) {
-      throw new Error("Auth token not found");
-    }
-    headers.append("Authorization", `Bearer ${authToken}`);
-    return headers;
-  }
+import { deleteBlogApi } from "../clients/BlogsClient";
 
 export const deleteBlog = (blogId, history) => {
   return async (dispatch) => {
     try {
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      setAuthHeader(myHeaders);
-      const response = await fetch(`http://localhost:8484/blogs/${blogId}`, {
-        method: "DELETE",
-        headers: myHeaders,
-      });
-      dispatch({ type: "DELETE_BLOG", payload: blogId });
-      // redirect user to /blogs page
+      const response = await deleteBlogApi(blogId);
       history.push("/blogs");
-    } catch (err) {
-      console.error(err);
+      dispatch({ type: "DELETE_BLOG", payload: blogId });
+    } catch (error) {
+      dispatch({ type: "DELETE_BLOG_ERROR", payload: error });
+      console.error(error);
     }
   };
 };

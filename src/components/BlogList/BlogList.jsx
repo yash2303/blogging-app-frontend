@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loadBlogList } from "../../actions/BlogList";
 import "./BlogList.css";
-import LogoutButton from "../Logout/LogoutButton";
+import Navigation from "../Navigation";
 
 const BlogList = ({ blogs, isLoading, error, user }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
 
   useEffect(() => {
     dispatch(loadBlogList());
-  }, []);
+  }, [dispatch]);
 
   const handleCreateBlog = () => {
     history.push("/create-blog");
@@ -32,28 +32,30 @@ const BlogList = ({ blogs, isLoading, error, user }) => {
     return <div>Failed to load blogs...</div>;
   } else {
     return (
-      <div className="blog-list-container">
-        <LogoutButton />
-        <button className="create-blog-button" onClick={handleCreateBlog}>
-          Create Blog
-        </button>
-        {blogs.map((blog) => {
-          const date = new Date(blog.createdAt);
-          const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-          return (
-            <div key={blog.id} className="blog-list-item">
-              <h2 className="blog-title">
-                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
-              </h2>
-              <p className="blog-content">{blog.summary}</p>
-              <div className="blog-details">
-                <span>Author: {blog.author.username}</span>
-                <span>Created at: {formattedDate}</span>
+      <div>
+        <Navigation />
+        <div className="blog-list-container">
+          <button className="create-blog-button" onClick={handleCreateBlog}>
+            Create Blog
+          </button>
+          {blogs.map((blog) => {
+            const date = new Date(blog.createdAt);
+            const formattedDate =
+              date.toLocaleDateString() + " " + date.toLocaleTimeString();
+            return (
+              <div key={blog.id} className="blog-list-item">
+                <h2 className="blog-title">
+                  <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                </h2>
+                <p className="blog-content">{blog.summary}</p>
+                <div className="blog-details">
+                  <span>Author: {blog.author.username}</span>
+                  <span>Created at: {formattedDate}</span>
+                </div>
               </div>
-            </div>
-          )
-        }
-        )}
+            );
+          })}
+        </div>
       </div>
     );
   }

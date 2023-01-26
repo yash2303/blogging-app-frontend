@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   blogList: blogsReducer,
   auth: authReducer,
   createBlog: createBlogReducer,
-  blogDetail: blogDetailReducer
+  blogDetail: blogDetailReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

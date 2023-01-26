@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../actions/Logout";
-import "./LogoutButton.css";
+// import "./LogoutButton.css";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,7 @@
-.logout-button {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
+.logoutButton {
+  position: absolute;
+  align-items: right;
+  color:aquamarine;
+  right: 20px;
+  top: 20px;
+}

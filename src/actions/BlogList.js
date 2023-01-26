@@ -1,3 +1,5 @@
+import { blogListApi } from "../clients/BlogsClient";
+
 const setBlogs = (blogs) => ({
   type: "SET_BLOGS",
   blogs,
@@ -12,41 +14,16 @@ const blogListLoading = () => ({
   type: "SET_BLOGS_LOADING",
 });
 
-function setAuthHeader(headers) {
-  const authToken = localStorage.getItem("authToken");
-  if(!authToken) {
-    throw new Error("Auth token not found");
-  }
-  headers.append("Authorization", `Bearer ${authToken}`);
-  return headers;
-}
-
-export function loadBlogList() {
+export const loadBlogList = () => {
   return async (dispatch, getState) => {
     const { blogList } = getState();
     if (blogList.isLoading) return;
-
     dispatch(blogListLoading());
     try {
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      setAuthHeader(myHeaders);
-      const response = await fetch("http://localhost:8484/blogs", {
-        method: "GET",
-        headers: myHeaders,
-      });
-      if (response.ok) {
-        const json = await response.json();
-        console.log("JSON: ", json);
-
-        dispatch(setBlogs(json.blogListDto));
-      } else {
-        // console.error(response.statusText);
-        dispatch(fetchBlogListFailed(new Error(response.statusText)));
-      }
+      const response = await blogListApi();
+      dispatch(setBlogs(response.blogListDto));
     } catch (error) {
-      // console.error(error);
       dispatch(fetchBlogListFailed(error));
     }
   };
-}
+};

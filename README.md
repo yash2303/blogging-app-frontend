@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# React-Redux Blogging App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple blogging application built using React and Redux. The app allows logged-in users to view a list of blogs, view individual blog posts, and create new blog posts.
+
+## Getting Started
+
+To get started, clone the repository and run `npm install` to install the necessary dependencies. Then, run `npm start` to start the development server. The app should be running at `http://localhost:3000`.
+
+## Features
+
+- Register user
+- Login user
+- View a list of blogs
+- View individual blog posts
+- Create new blog posts
+- Delete blog posts
+
+## Technologies Used
+
+- React
+- Redux
+- React Router
 
 ## Available Scripts
 
@@ -8,63 +27,42 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## File Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The file structure for the app is as follows:
 
-### `npm run eject`
+- src
+    - actions
+    - components
+    - reducers
+    - App.js
+    - index.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `src/actions`
+This directory contains all the action creators used in the app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `src/components`
+This directory contains all the React components used in the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `src/store`
+This directory contains all the reducers used in the app. The `store.js` file exports all the reducers.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `src/App.js`
+This file contains the root component of the app and it is responsible for rendering all the other components.
 
-## Learn More
+### `src/index.js`
+This file is the entry point of the app and it is responsible for rendering the root component in the `root` element of the `index.html` file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The app can be deployed to any static hosting service or a server.

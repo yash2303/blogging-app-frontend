@@ -9,9 +9,9 @@ export const blogDetailReducer = (state = initialState, action) => {
     case "FETCH_BLOG_LOADING":
       return { ...state, isLoading: true };
     case "FETCH_BLOG_SUCCESS":
-      return { ...state, data: action.data, isLoading: false };
+      return { ...state, data: action.payload, isLoading: false, error: null };
     case "FETCH_BLOG_ERROR":
-      return { ...state, error: action.error, isLoading: false };
+      return { ...state, error: action.error, isLoading: false, data: null };
     default:
       return state;
   }
