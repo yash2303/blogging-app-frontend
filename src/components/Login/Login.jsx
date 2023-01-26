@@ -13,7 +13,7 @@ const Login = ({ user, error }) => {
   useEffect(() => {
     var token = localStorage.getItem("authToken");
     if (token) {
-      history.push("/blogs");
+      history.push("/");
     }
   }, [history, user]);
 

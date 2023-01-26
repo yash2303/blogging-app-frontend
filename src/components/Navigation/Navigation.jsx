@@ -6,7 +6,7 @@ import "./Navigation.css"
 const Navigation = () => {
   return (
     <div className="navigation-bar">
-      <Link to="/blogs">Home</Link>
+      <Link to="/">Home</Link>
       <LogoutButton />
     </div>
   );

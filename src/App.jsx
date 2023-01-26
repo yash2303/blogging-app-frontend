@@ -13,11 +13,11 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Switch>
+          <Route exact={true} path="/" component={BlogList} />
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/register" component={Register} />
-          <Route exact={true} path="/blogs" component={BlogList} />
           <Route exact={true} path="/create-blog" component={CreateBlog} />
-          <Route exact={true} path="/blogs/:blogId" component={BlogDetail} />     
+          <Route exact={true} path="/blogs/:blogId" component={BlogDetail} />
           <Route component={NotFoundPage} />
         </Switch>{" "}
       </div>
